@@ -166,6 +166,78 @@
                                         </code></pre>
                 </section>
             </section>
+
+            <section>
+                <section>
+                    <h2>Class and Object</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li>private</li>
+                        <li>protected</li>
+                        <li>internal</li>
+                        <li>public</li>
+                    </ul>
+                </section>
+                <section>
+                    <div>Constructors</div>
+                    <pre><code class="java">
+    fun main(args: Array<String>) {
+        var h = Person("ehsan")
+        print("${h.firstName}  ${h.age}")
+    }
+    
+    class Person(val firstName: String, var age: Int) {
+        constructor(name :String): this(name, 50)
+        init {
+            //...
+        }
+    }
+                                                </code></pre>
+                </section>
+                <section>
+                    <div>Inheritance</div>
+                    <pre><code class="java">
+    open class ABC {
+        open fun think () {
+            print("Hey!! i am thinking ")
+        }
+    }
+        class BCD: ABC() { // inheritance happens using default constructor 
+        override fun think() {
+            print("I Am from Child")
+        }
+    }
+        fun main(args: Array<String>) {
+        var  a = BCD()
+        a.think() //I Am from Child
+    }
+                                                    </code></pre>
+                </section>
+                <section>
+                    <div>Interface</div>
+                    <pre><code class="java">
+    interface ExampleInterface  {
+        var myVar: Int            // abstract property
+        fun absMethod():String    // abstract method
+        
+        fun hello() {
+            println("Hello")
+        }
+    }
+        class InterfaceImp : ExampleInterface {
+        override var myVar: Int = 25
+        override fun absMethod() = "ABS"
+    }
+        fun main(args: Array<String>) {
+        val obj = InterfaceImp()
+        println("My Variable Value is = ${obj.myVar}")
+        obj.hello()
+        println(obj.absMethod())
+    }
+                                                        </code></pre>
+                </section>
+            </section>
         </div>
     </div>
 
