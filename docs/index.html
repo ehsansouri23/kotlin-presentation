@@ -204,6 +204,16 @@
                                                 </code></pre>
                 </section>
                 <section>
+                    <div>Getter and Setters</div>
+                    <pre><code class="java">
+    var <'propertyName'>[: <'PropertyType'>] [= <'property_initializer'>]
+        [<'getter'>]
+        [<'setter'>]
+
+    val isEmpty get() = this.size == 0  // has type Boolean
+                                                </code></pre>
+                </section>
+                <section>
                     <div>Inheritance</div>
                     <pre><code class="java">
     open class ABC {
@@ -243,6 +253,58 @@
         obj.hello()
         println(obj.absMethod())
     }
+                                                        </code></pre>
+                </section>
+                <section>
+                    <div>Smart Cast</div>
+                    <pre><code class="java">
+    fun demo(x: Any) {
+        if (x is String) {
+            print(x.length) // x is automatically cast to String
+        }
+    }
+                                                        </code></pre>
+                </section>
+                <section>
+                    <div>Smart Cast</div>
+                    <pre><code class="java">
+    when (x) {
+        is Int -> print(x + 1)
+        is String -> print(x.length + 1)
+        is IntArray -> print(x.sum())
+    }
+                                                        </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Extensions</h2>
+                </section>
+                <section>
+                    <div>Extensions functions</div>
+                    <pre><code class="java">
+    fun String.greet(x: String) {
+        print("$this $x")
+    }
+
+    fun main(args: Array<String>) {
+        var str = "salam"
+        str.greet("ehsan") //salam ehsan
+    }
+                                                        </code></pre>
+                </section>
+                <section>
+                    <div>Extensions functions</div>
+                    <pre><code class="java">
+    fun MutableList<Int>.swap(index1: Int, index2: Int) {
+        val tmp = this[index1] // 'this' corresponds to the list
+        this[index1] = this[index2]
+        this[index2] = tmp
+    }
+
+    val l = mutableListOf(1, 2, 3)
+    l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
                                                         </code></pre>
                 </section>
             </section>
