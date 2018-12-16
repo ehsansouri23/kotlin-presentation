@@ -173,6 +173,69 @@
     }
                                         </code></pre>
                 </section>
+                <section>
+                    <div>Return and Jumps</div>
+                    <pre><code class="java">
+    loop@ for (i in 1..100) {
+        for (j in 1..100) {
+            if (...) break@loop
+        }
+    }
+                                            </code></pre>
+                </section>
+                <section>
+                    <div>Return and Jumps</div>
+                    <pre><code class="java">
+    fun foo() {
+        listOf(1, 2, 3, 4, 5).forEach {
+            if (it == 3) return@forEach // local return to the caller of the lambda, i.e. the forEach loop
+            print(it)
+        }
+        print(" done with implicit label")
+    }
+                    </code></pre>
+                </section>
+                <section>
+                    <div>tailrec fun</div>
+                    <pre><code class="java">
+    tailrec fun findFixPoint(x: Double = 1.0): Double
+    = if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
+                       </code></pre>
+                </section>
+                <section>
+                    <div>NPE</div>
+                    <pre><code class="java">
+    var a: String = "abc"
+    a = null // compilation error
+
+    var b: String? = "abc"
+    b = null // ok
+    print(b) //null
+                            </code></pre>
+                </section>
+                <section>
+                    <div>Safe calls</div>
+                    <pre><code class="java">
+    val a = "Kotlin"
+    val b: String? = null
+    println(b?.length)
+    println(a?.length)
+                        </code></pre>
+                </section>
+                <section>
+                    <div>Safe calls</div>
+                    <pre><code class="java">
+    val l: Int = if (b != null) b.length else -1
+
+    val l = b?.length ?: -1
+                              </code></pre>
+                </section>
+                <section>
+                    <div>ClassCastException</div>
+                    <pre><code class="java">
+    val aInt: Int? = a as? Int
+                             </code></pre>
+                </section>
             </section>
 
             <section>
