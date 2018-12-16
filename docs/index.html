@@ -371,6 +371,37 @@
                                                         </code></pre>
                 </section>
             </section>
+
+            <section>
+                <section>
+                    <h2>Coroutines</h2>
+                    <img src="img/coroutines.png">
+                    <div class="fragment">kotlinx.coroutines</div>
+                </section>
+                <section>
+                    <ul>
+                        <li>Timeouts</li>
+                        <li>Channels</li>
+                        <li>Coroutines context and dispatchers</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+                <section>
+                    <div>Coroutines</div>
+                    <pre><code class="java">
+    import kotlinx.coroutines.*
+
+    fun main() {
+        GlobalScope.launch { // launch new coroutine in background and continue
+            delay(1000L) // non-blocking delay for 1 second (default time unit is ms)
+            println("World!") // print after delay
+        }
+        println("Hello,") // main thread continues while coroutine is delayed
+        Thread.sleep(2000L) // block main thread for 2 seconds to keep JVM alive
+    }
+                                                            </code></pre>
+                </section>
+            </section>
         </div>
     </div>
 
